@@ -18,3 +18,71 @@ El sistema se basa en una clase padre (Alumno) y tres clases hijas (AlumnoRegula
     Revisa la consola para ver la salida de la herencia, el polimorfismo en el ciclo for y la prueba de los getters/setters.
 
     
+classDiagram
+    %% Clase Padre
+    class Alumno {
+        +String nombre
+        #String escuela
+        -String grado
+        -int edad_primitiva
+        -Integer edad_objeto
+        -double altura_primitiva
+        -Double altura_objeto
+        -float promedio_primitivo
+        -Float promedio_objeto
+        -boolean asistencia_primitiva
+        -Boolean asistencia_objeto
+        -char inicial_primitiva
+        -Character inicial_objeto
+        -long matricula_primitiva
+        -Long matricula_objeto
+        -byte nivel_primitivo
+        -Byte nivel_objeto
+        #ArrayList~String~ materias
+        -LinkedList~Float~ calificaciones
+        -HashSet~String~ amigos
+        -HashMap~String, Float~ notas
+        +Alumno(String, String, String)
+        +getGrado() String
+        +setGrado(String) void
+        +estudiar() void
+        +mostrarInfo() void
+    }
+
+    %% Clases Hijas
+    class AlumnoRegular {
+        -String salon
+        +AlumnoRegular(String, String, String, String)
+        +estudiar() void
+        +getSalon() String
+        +setSalon(String) void
+    }
+
+    class AlumnoBecado {
+        -double montoBeca
+        +AlumnoBecado(String, String, String, double)
+        +estudiar() void
+        +getMontoBeca() double
+        +setMontoBeca(double) void
+    }
+
+    class AlumnoDeportista {
+        -String deporte
+        +AlumnoDeportista(String, String, String, String)
+        +estudiar() void
+        +getDeporte() String
+        +setDeporte(String) void
+    }
+
+    %% Clase Principal
+    class Main {
+        +main(String[] args) void
+    }
+
+    %% Relaciones
+    Alumno <|-- AlumnoRegular : "Herencia (extends)"
+    Alumno <|-- AlumnoBecado : "Herencia (extends)"
+    Alumno <|-- AlumnoDeportista : "Herencia (extends)"
+    Main ..> AlumnoRegular : "Crea y usa"
+    Main ..> AlumnoBecado : "Crea y usa"
+    Main ..> AlumnoDeportista : "Crea y usa"
