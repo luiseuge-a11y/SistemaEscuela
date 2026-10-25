@@ -18,7 +18,10 @@ El sistema se basa en una clase padre (Alumno) y tres clases hijas (AlumnoRegula
     Revisa la consola para ver la salida de la herencia, el polimorfismo en el ciclo for y la prueba de los getters/setters.
 
     
+```mermaid
 classDiagram
+    ...
+```
     %% Clase Padre
     class Alumno {
         +String nombre
